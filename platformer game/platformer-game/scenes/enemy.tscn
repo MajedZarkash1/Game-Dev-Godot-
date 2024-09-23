@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuf0pu00hkfxv"]
+
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_3jxmx"]
+[ext_resource type="Texture2D" uid="uid://b1cbvck0jyh28" path="res://images/the enemy.png" id="1_3300e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyhff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3300e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayhko"]
+size = Vector2(70, 74)
+
+[node name="CharacterBody2D2" type="CharacterBody2D"]
+script = ExtResource("1_3jxmx")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(626, 458)
+scale = Vector2(2.1875, 2.3125)
+sprite_frames = SubResource("SpriteFrames_iyhff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(626, 458)
+shape = SubResource("RectangleShape2D_ayhko")
