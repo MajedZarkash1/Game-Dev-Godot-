@@ -1,8 +1,34 @@
 extends CharacterBody2D
 
+# Speed of the enemy
 var speed = 100
-var value = randf_range(-1, 1)
-var direction = Vector2(value,value).normalized()
+# Gravity settings
+var gravity = 400
+
+# Direction of movement
+var moving_right = true
+
+# Movement limits
+var move_distance = 50  # Distance to move left and right
+var start_position: Vector2
+
+func _ready():
+	# Store the starting position
+	start_position = position
 
 func _physics_process(delta):
-	position += direction * speed * delta
+	# Apply gravity
+	velocity.y += gravity * delta
+
+	# Horizontal movement
+	if moving_right:
+		velocity.x = speed
+		if position.x >= start_position.x + move_distance:
+			moving_right = false  # Change direction to left
+	else:
+		velocity.x = -speed
+		if position.x <= start_position.x - move_distance:
+			moving_right = true  # Change direction to right
+
+	# Move the character
+	move_and_slide()
