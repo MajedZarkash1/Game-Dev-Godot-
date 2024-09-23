@@ -9,7 +9,7 @@ var gravity = 400
 var moving_right = true
 
 # Movement limits
-var move_distance = 50  # Distance to move left and right
+var move_distance = 100  # Distance to move left and right
 var start_position: Vector2
 
 func _ready():
