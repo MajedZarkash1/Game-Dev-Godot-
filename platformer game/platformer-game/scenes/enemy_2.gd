@@ -1,30 +1,37 @@
 extends CharacterBody2D
-
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
+# Speed of the enemy
+var speed = 100
+# Gravity settings
+var gravity = 400
 
+# Direction of movement
+var moving_right = true
 
+# Movement limits
+var move_distance = 100  # Distance to move left and right
+var start_position: Vector2
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+func _ready():
+	# Store the starting position
+	start_position = position
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+func _physics_process(delta):
+	# Apply gravity
+	velocity.y += gravity * delta
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	# Horizontal movement
+	if moving_right:
+		velocity.x = speed
+		if position.x >= start_position.x + move_distance:
+			moving_right = false  # Change direction to left
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = -speed
+		if position.x <= start_position.x - move_distance:
+			moving_right = true  # Change direction to right
 
+	# Move the character
 	move_and_slide()
 	
 	var isLeft = velocity.x < 0

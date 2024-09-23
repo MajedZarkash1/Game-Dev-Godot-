@@ -1,4 +1,6 @@
 extends CharacterBody2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 
 # Speed of the enemy
 var speed = 100
@@ -9,8 +11,9 @@ var gravity = 400
 var moving_right = true
 
 # Movement limits
-var move_distance = 100  # Distance to move left and right
+var move_distance = 50  # Distance to move left and right
 var start_position: Vector2
+
 
 func _ready():
 	# Store the starting position
@@ -32,3 +35,6 @@ func _physics_process(delta):
 
 	# Move the character
 	move_and_slide()
+	
+	var isLeft = velocity.x < 0
+	animated_sprite_2d.flip_h = isLeft

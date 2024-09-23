@@ -1,5 +1,9 @@
 extends CharacterBody2D
-@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+
+
 
 # Speed of the enemy
 var speed = 100
@@ -35,4 +39,4 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	var isLeft = velocity.x < 0
-	sprite_2d.flip_h = isLeft
+	animated_sprite_2d.flip_h = isLeft
