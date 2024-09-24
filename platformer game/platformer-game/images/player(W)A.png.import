@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxdpj5qmhwf2a"
-path="res://.godot/imported/imoji.png-f5824603830e737bdffd2a281b05c106.ctex"
+uid="uid://d1sxnwphv6luv"
+path="res://.godot/imported/player(W)A.png-36989719f7fc6b200afb69e3d03c81a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imoji.png"
-dest_files=["res://.godot/imported/imoji.png-f5824603830e737bdffd2a281b05c106.ctex"]
+source_file="res://images/player(W)A.png"
+dest_files=["res://.godot/imported/player(W)A.png-36989719f7fc6b200afb69e3d03c81a8.ctex"]
 
 [params]
 

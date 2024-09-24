@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpyr25xetpplu"
-path="res://.godot/imported/player animation.png-8fe9e40c4f340094d01c18de9b1d6eb5.ctex"
+uid="uid://geol4obxntdj"
+path="res://.godot/imported/Player(D)A.png-6658a46a32c26e2ccf8cf481f38e9eef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player animation.png"
-dest_files=["res://.godot/imported/player animation.png-8fe9e40c4f340094d01c18de9b1d6eb5.ctex"]
+source_file="res://images/Player(D)A.png"
+dest_files=["res://.godot/imported/Player(D)A.png-6658a46a32c26e2ccf8cf481f38e9eef.ctex"]
 
 [params]
 

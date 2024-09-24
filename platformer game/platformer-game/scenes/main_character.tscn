@@ -98,7 +98,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking animation",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukg7o"]
@@ -109,10 +109,12 @@ script = ExtResource("1_ki0oy")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(61, 404)
-scale = Vector2(5.4375, 4.18958)
+position = Vector2(53.75, 404)
+scale = Vector2(4.53125, 4.18958)
 sprite_frames = SubResource("SpriteFrames_q1r6f")
+animation = &"walking animation"
 autoplay = "default"
+frame_progress = 0.429728
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(54, 403.25)
