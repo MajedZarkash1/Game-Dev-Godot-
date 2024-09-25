@@ -112,7 +112,10 @@ texture_filter = 1
 position = Vector2(53.75, 404)
 scale = Vector2(4.53125, 4.18958)
 sprite_frames = SubResource("SpriteFrames_q1r6f")
+animation = &"walking animation"
 autoplay = "default"
+frame = 3
+frame_progress = 0.546926
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(54, 403.25)
