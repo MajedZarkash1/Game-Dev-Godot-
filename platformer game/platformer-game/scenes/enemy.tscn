@@ -1,32 +1,79 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuf0pu00hkfxv"]
+[gd_scene load_steps=12 format=3 uid="uid://cuf0pu00hkfxv"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_3jxmx"]
-[ext_resource type="Texture2D" uid="uid://b1cbvck0jyh28" path="res://images/the enemy.png" id="1_3300e"]
+[ext_resource type="Texture2D" uid="uid://ddplax2hqbk43" path="res://images/enemy's walking.png" id="2_tcjsq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ggpq"]
+atlas = ExtResource("2_tcjsq")
+region = Rect2(1, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yb8p"]
+atlas = ExtResource("2_tcjsq")
+region = Rect2(14, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4fb8"]
+atlas = ExtResource("2_tcjsq")
+region = Rect2(27, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kx1u"]
+atlas = ExtResource("2_tcjsq")
+region = Rect2(40, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au06a"]
+atlas = ExtResource("2_tcjsq")
+region = Rect2(53, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebq68"]
+atlas = ExtResource("2_tcjsq")
+region = Rect2(66, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ff07"]
+atlas = ExtResource("2_tcjsq")
+region = Rect2(79, 0, 13, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iyhff"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_3300e")
+"texture": SubResource("AtlasTexture_3ggpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yb8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4fb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kx1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au06a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebq68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ff07")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"enemy\'s walking",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayhko"]
-size = Vector2(70, 74)
+size = Vector2(37, 109)
 
 [node name="CharacterBody2D2" type="CharacterBody2D"]
-position = Vector2(677, 328)
+position = Vector2(2, 0)
 script = ExtResource("1_3jxmx")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, -0.999992)
-scale = Vector2(2.1875, 2.3125)
+position = Vector2(1.5, -25)
+scale = Vector2(4.70072, 3.95313)
 sprite_frames = SubResource("SpriteFrames_iyhff")
+animation = &"enemy\'s walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(3.5, -21.5)
 shape = SubResource("RectangleShape2D_ayhko")

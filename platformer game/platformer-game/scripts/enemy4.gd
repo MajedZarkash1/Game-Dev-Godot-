@@ -1,8 +1,5 @@
 extends CharacterBody2D
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
-
 
 
 # Speed of the enemy
@@ -20,6 +17,7 @@ var start_position: Vector2
 func _ready():
 	# Store the starting position
 	start_position = position
+	animated_sprite_2d.play("enemy's walking")
 
 func _physics_process(delta):
 	# Apply gravity
@@ -40,3 +38,8 @@ func _physics_process(delta):
 	
 	var isLeft = velocity.x < 0
 	animated_sprite_2d.flip_h = isLeft
+	
+	if velocity.x != 0:
+		if animated_sprite_2d.is_playing():
+			animated_sprite_2d.play("enemy's walking")
+			

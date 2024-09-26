@@ -16,6 +16,7 @@ var start_position: Vector2
 func _ready():
 	# Store the starting position
 	start_position = position
+	sprite_2d.play("enemy's walking")
 
 func _physics_process(delta):
 	# Apply gravity
@@ -36,3 +37,10 @@ func _physics_process(delta):
 	
 	var isLeft = velocity.x < 0
 	sprite_2d.flip_h = isLeft
+	
+	
+	if velocity.x != 0:
+		if sprite_2d.is_playing():
+			sprite_2d.play("enem's walking")
+		
+		

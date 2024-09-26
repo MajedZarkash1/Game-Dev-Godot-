@@ -1,28 +1,76 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv1tyummt2upx"]
+[gd_scene load_steps=11 format=3 uid="uid://bv1tyummt2upx"]
 
-[ext_resource type="Texture2D" uid="uid://b1cbvck0jyh28" path="res://images/the enemy.png" id="1_pac2m"]
+[ext_resource type="Texture2D" uid="uid://ddplax2hqbk43" path="res://images/enemy's walking.png" id="1_5lmdh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46mhx"]
+atlas = ExtResource("1_5lmdh")
+region = Rect2(1, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbuqd"]
+atlas = ExtResource("1_5lmdh")
+region = Rect2(14, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_376iu"]
+atlas = ExtResource("1_5lmdh")
+region = Rect2(27, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1x0n"]
+atlas = ExtResource("1_5lmdh")
+region = Rect2(40, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiore"]
+atlas = ExtResource("1_5lmdh")
+region = Rect2(53, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd6kc"]
+atlas = ExtResource("1_5lmdh")
+region = Rect2(66, 0, 13, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7hnw"]
+atlas = ExtResource("1_5lmdh")
+region = Rect2(79, 0, 13, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m7k8i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_pac2m")
+"texture": SubResource("AtlasTexture_46mhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbuqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_376iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1x0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiore")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd6kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7hnw")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"enemy\'s walking",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk0ma"]
-size = Vector2(54, 52)
+size = Vector2(40, 109.5)
 
 [node name="CharacterBody2D3" type="CharacterBody2D"]
-position = Vector2(627, 339)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(1.6875, 1.625)
+position = Vector2(1.5, -25)
+scale = Vector2(5.047, 3.9)
 sprite_frames = SubResource("SpriteFrames_m7k8i")
+animation = &"enemy\'s walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -21.75)
 shape = SubResource("RectangleShape2D_kk0ma")

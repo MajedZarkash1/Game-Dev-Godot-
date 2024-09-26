@@ -46,19 +46,19 @@ script = ExtResource("6_i12a0")
 position = Vector2(97, 442)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(5, -17)
-zoom = Vector2(1.2, 1.2)
+position = Vector2(73, -66)
 
 [node name="enemy_1" parent="." instance=ExtResource("4_60ky1")]
-position = Vector2(844, 486)
+position = Vector2(398, 493)
 
 [node name="enemy_2" parent="." instance=ExtResource("5_0mgyq")]
-position = Vector2(563, 484)
+position = Vector2(728, 495)
 script = ExtResource("6_mkl2n")
 
 [node name="enemy_3" parent="." instance=ExtResource("7_n6et1")]
-position = Vector2(740, 486)
+visible = false
+position = Vector2(-394, 340)
 script = ExtResource("8_qv327")
 
 [node name="enemy_4" parent="." instance=ExtResource("9_n4g30")]
-position = Vector2(942, 485)
+position = Vector2(1170, 485)
