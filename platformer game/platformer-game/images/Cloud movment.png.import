@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxf8jorjro06q"
-path="res://.godot/imported/Grass.png-2eb1df5b874c254d4a55387e597f4974.ctex"
+uid="uid://ca26hehteht7f"
+path="res://.godot/imported/Cloud movment.png-b0fcff2b1e796e230744976bc11c115b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Grass.png"
-dest_files=["res://.godot/imported/Grass.png-2eb1df5b874c254d4a55387e597f4974.ctex"]
+source_file="res://images/Cloud movment.png"
+dest_files=["res://.godot/imported/Cloud movment.png-b0fcff2b1e796e230744976bc11c115b.ctex"]
 
 [params]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci1ft7fscggm4"]
+
+[ext_resource type="Script" path="res://scripts/clouds_movment.gd" id="1_x0ad6"]
+[ext_resource type="Texture2D" uid="uid://ca26hehteht7f" path="res://images/Cloud movment.png" id="2_o068l"]
+
+[node name="Clouds" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_x0ad6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 64)
+scale = Vector2(6.1875, 6.75)
+texture = ExtResource("2_o068l")

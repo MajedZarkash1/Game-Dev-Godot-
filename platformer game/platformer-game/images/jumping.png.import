@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxf8jorjro06q"
-path="res://.godot/imported/Grass.png-2eb1df5b874c254d4a55387e597f4974.ctex"
+uid="uid://bq04xvtl6nvbs"
+path="res://.godot/imported/jumping.png-b53d97e9667c6b85789d7d26019d766a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Grass.png"
-dest_files=["res://.godot/imported/Grass.png-2eb1df5b874c254d4a55387e597f4974.ctex"]
+source_file="res://images/jumping.png"
+dest_files=["res://.godot/imported/jumping.png-b53d97e9667c6b85789d7d26019d766a.ctex"]
 
 [params]
 

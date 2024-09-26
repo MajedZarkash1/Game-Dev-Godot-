@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://darv3vvwkgl6t"]
+
+[ext_resource type="Texture2D" uid="uid://c6q0ya6jk3bux" path="res://images/Sky.png" id="1_0ohcy"]
+[ext_resource type="Texture2D" uid="uid://ca26hehteht7f" path="res://images/Cloud movment.png" id="2_3cgli"]
+[ext_resource type="Script" path="res://scripts/could_movment.gd" id="3_3c0j8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdq14"]
+texture = ExtResource("1_0ohcy")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_56wqp"]
+sources/0 = SubResource("TileSetAtlasSource_rdq14")
+
+[node name="Cloud" type="TileMap"]
+texture_filter = 1
+position = Vector2(46, 38)
+scale = Vector2(10, 10)
+tile_set = SubResource("TileSet_56wqp")
+format = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(13.4, 14)
+texture = ExtResource("2_3cgli")
+script = ExtResource("3_3c0j8")
