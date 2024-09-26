@@ -18,14 +18,13 @@ animations = [{
 size = Vector2(69.5, 65)
 
 [node name="CharacterBody2D5" type="CharacterBody2D"]
+position = Vector2(884, 399)
 script = ExtResource("1_37g01")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1042, 469)
 scale = Vector2(2.15625, 2)
 sprite_frames = SubResource("SpriteFrames_lki4v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1042.25, 469.5)
 shape = SubResource("RectangleShape2D_f0uij")
