@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv1tyummt2upx"]
+[gd_scene load_steps=12 format=3 uid="uid://bv1tyummt2upx"]
 
 [ext_resource type="Texture2D" uid="uid://ddplax2hqbk43" path="res://images/enemy's walking.png" id="1_5lmdh"]
+[ext_resource type="PackedScene" uid="uid://mr24c5bw585o" path="res://scenes/health_bar.tscn" id="2_kweyu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46mhx"]
 atlas = ExtResource("1_5lmdh")
@@ -60,17 +61,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk0ma"]
-size = Vector2(40, 109.5)
+size = Vector2(40, 92)
 
 [node name="CharacterBody2D3" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1.5, -25)
-scale = Vector2(5.047, 3.9)
+position = Vector2(1.5, -14.3)
+scale = Vector2(5.047, 3.23125)
 sprite_frames = SubResource("SpriteFrames_m7k8i")
 animation = &"enemy\'s walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -21.75)
+position = Vector2(4, -13)
 shape = SubResource("RectangleShape2D_kk0ma")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_kweyu")]
+anchors_preset = 0
+offset_left = -27.0
+offset_top = -97.0
+offset_right = 33.0
+offset_bottom = -83.0
