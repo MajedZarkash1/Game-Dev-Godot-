@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var health_bar: ProgressBar = $HealthBar
 
 # For attacking
+
 var player_inattack_zone = false
 var Player_current_attack = false
 # Speed of the enemy
@@ -29,6 +30,7 @@ func _ready():
 func take_damage(amount: int):
 	current_health -= amount
 	current_health = clamp(current_health, 0, max_health)
+	health_bar.value = current_health
 	
 	# Update health bar
 	health_bar.value = current_health
@@ -36,9 +38,6 @@ func take_damage(amount: int):
 	if current_health <= 0:
 		die()
 
-func die():
-	# Handle death (play animation, remove node)
-	queue_free()
 
 func _physics_process(delta):
 	deal_with_damage()
@@ -78,3 +77,9 @@ func deal_with_damage():
 	if player_inattack_zone and Global.Player_current_attack:
 		take_damage(20)  # Apply damage using the take_damage method
 		print("enemy health = ", current_health)  # Show current health
+		
+	if current_health <= 0:
+		die()
+
+func die():
+	queue_free()  # Handle enemy death logic

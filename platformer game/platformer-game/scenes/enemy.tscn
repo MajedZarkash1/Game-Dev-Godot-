@@ -95,5 +95,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1.5, -17)
 shape = SubResource("RectangleShape2D_378yx")
 
+[node name="enemy_attack_timer" type="Timer" parent="enemy_hitbox"]
+
 [connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]

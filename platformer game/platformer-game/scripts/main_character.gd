@@ -18,6 +18,7 @@ var current_health: int = max_health
 func _ready():
 	health_bar.max_value = max_health
 	health_bar.value = current_health
+	
 
 func take_damage(amount: int):
 	current_health -= amount
