@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5r83f5vwyqfv"]
+[gd_scene load_steps=22 format=3 uid="uid://c5r83f5vwyqfv"]
 
 [ext_resource type="Script" path="res://scripts/main_character.gd" id="1_ki0oy"]
 [ext_resource type="Texture2D" uid="uid://bo3tudv83bwqt" path="res://images/default.png" id="2_aga5c"]
 [ext_resource type="Texture2D" uid="uid://bq04xvtl6nvbs" path="res://images/jumping.png" id="3_5oc6a"]
 [ext_resource type="Texture2D" uid="uid://d3a2vvcs0l3be" path="res://images/walk.png" id="3_ac8qf"]
+[ext_resource type="PackedScene" uid="uid://mr24c5bw585o" path="res://scenes/health_bar.tscn" id="5_hj66n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aroks"]
 atlas = ExtResource("2_aga5c")
@@ -137,3 +138,9 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.5, -2)
 shape = SubResource("RectangleShape2D_ogf6w")
+
+[node name="HealthBar" parent="." instance=ExtResource("5_hj66n")]
+offset_left = -50.0
+offset_top = -92.0
+offset_right = 56.0
+offset_bottom = -73.0

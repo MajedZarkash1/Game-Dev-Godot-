@@ -80,7 +80,6 @@ position = Vector2(3.5, -13.5)
 shape = SubResource("RectangleShape2D_ayhko")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_jha2r")]
-anchors_preset = 0
 offset_left = -27.0
 offset_top = -97.0
 offset_right = 33.0

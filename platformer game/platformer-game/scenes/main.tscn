@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xj026mw2eb0u"]
+[gd_scene load_steps=14 format=3 uid="uid://xj026mw2eb0u"]
 
 [ext_resource type="PackedScene" uid="uid://cjrwdlmbpu27r" path="res://scenes/sky(blue).tscn" id="1_fq6qt"]
 [ext_resource type="PackedScene" uid="uid://cn7oyvm7ry4uk" path="res://scenes/ground.tscn" id="3_3n7oq"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://scripts/cloud_3.gd" id="6_i12a0"]
 [ext_resource type="Script" path="res://scripts/enemy_2.gd" id="6_mkl2n"]
 [ext_resource type="PackedScene" uid="uid://cpcl6212x4uwj" path="res://scenes/enemy3.tscn" id="7_n6et1"]
-[ext_resource type="PackedScene" uid="uid://mr24c5bw585o" path="res://scenes/health_bar.tscn" id="8_4mwjn"]
 [ext_resource type="Script" path="res://scripts/enemy_3.gd" id="8_qv327"]
 [ext_resource type="PackedScene" uid="uid://d0jxjqrygaghi" path="res://scenes/enemy4.tscn" id="9_n4g30"]
 
@@ -49,13 +48,6 @@ position = Vector2(97, 442)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(73, -66)
-
-[node name="ProgressBar" parent="Player/Camera2D" instance=ExtResource("8_4mwjn")]
-anchors_preset = 0
-offset_left = -489.0
-offset_top = -309.0
-offset_right = -369.0
-offset_bottom = -282.0
 
 [node name="enemy_1" parent="." instance=ExtResource("4_60ky1")]
 position = Vector2(398, 493)
