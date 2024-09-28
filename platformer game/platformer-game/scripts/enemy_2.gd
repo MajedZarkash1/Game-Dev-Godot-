@@ -66,3 +66,8 @@ func _physics_process(delta):
 			sprite_2d.play("enem's walking")
 		
 		
+
+
+#for attacking the player
+func enemy():
+	pass

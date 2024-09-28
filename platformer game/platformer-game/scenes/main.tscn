@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xj026mw2eb0u"]
+[gd_scene load_steps=12 format=3 uid="uid://xj026mw2eb0u"]
 
 [ext_resource type="PackedScene" uid="uid://cjrwdlmbpu27r" path="res://scenes/sky(blue).tscn" id="1_fq6qt"]
 [ext_resource type="PackedScene" uid="uid://cn7oyvm7ry4uk" path="res://scenes/ground.tscn" id="3_3n7oq"]
@@ -8,11 +8,34 @@
 [ext_resource type="Script" path="res://scripts/could_movment.gd" id="4_kijht"]
 [ext_resource type="PackedScene" uid="uid://bv1tyummt2upx" path="res://scenes/enemy2.tscn" id="5_0mgyq"]
 [ext_resource type="Script" path="res://scripts/cloud_2.gd" id="5_4srjn"]
-[ext_resource type="Script" path="res://scripts/cloud_3.gd" id="6_i12a0"]
 [ext_resource type="Script" path="res://scripts/enemy_2.gd" id="6_mkl2n"]
-[ext_resource type="PackedScene" uid="uid://cpcl6212x4uwj" path="res://scenes/enemy3.tscn" id="7_n6et1"]
-[ext_resource type="Script" path="res://scripts/enemy_3.gd" id="8_qv327"]
 [ext_resource type="PackedScene" uid="uid://d0jxjqrygaghi" path="res://scenes/enemy4.tscn" id="9_n4g30"]
+
+[sub_resource type="GDScript" id="GDScript_yljeq"]
+script/source = "extends Sprite2D
+
+var speed = 25
+var direction = 1
+var movement_rang = 100
+var start_position = Vector2.ZERO
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	
+	start_position = position
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	
+	position.x += direction * speed * delta
+	if position.x > start_position.x + movement_rang:
+		direction = -1
+	elif position.x < start_position.x - movement_rang:
+		direction = 1
+		
+	
+"
 
 [node name="Node" type="Node"]
 
@@ -41,10 +64,10 @@ texture_filter = 1
 position = Vector2(1088, 230)
 scale = Vector2(8.83125, 9.34375)
 texture = ExtResource("3_5aagn")
-script = ExtResource("6_i12a0")
+script = SubResource("GDScript_yljeq")
 
 [node name="Player" parent="." instance=ExtResource("3_ihyt0")]
-position = Vector2(97, 442)
+position = Vector2(113, 473)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(73, -66)
@@ -55,11 +78,6 @@ position = Vector2(398, 493)
 [node name="enemy_2" parent="." instance=ExtResource("5_0mgyq")]
 position = Vector2(739, 491)
 script = ExtResource("6_mkl2n")
-
-[node name="enemy_3" parent="." instance=ExtResource("7_n6et1")]
-visible = false
-position = Vector2(-394, 340)
-script = ExtResource("8_qv327")
 
 [node name="enemy_4" parent="." instance=ExtResource("9_n4g30")]
 position = Vector2(1170, 485)

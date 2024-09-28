@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
 
+# For attacking
+var player_inattack_zone = false
+var Player_current_attack = false
 # Speed of the enemy
 var speed = 100
 # Gravity settings
@@ -35,10 +38,11 @@ func take_damage(amount: int):
 
 func die():
 	# Handle death (play animation, remove node)
-	# Optionally play a death animation here
 	queue_free()
 
 func _physics_process(delta):
+	deal_with_damage()
+	
 	# Apply gravity
 	velocity.y += gravity * delta
 	
@@ -61,3 +65,16 @@ func _physics_process(delta):
 	if velocity.x != 0:
 		if not sprite_2d.is_playing():
 			sprite_2d.play("enemy's walking")  # Ensure this animation name is correct
+
+func _on_enemy_hitbox_body_entered(body: Node2D) -> void:
+	if body.has_method("take_damage"):
+		body.take_damage(20)  # Deal 20 damage to the player
+
+func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
+	# Logic if needed when the enemy exits the player hitbox
+	pass
+
+func deal_with_damage():
+	if player_inattack_zone and Global.Player_current_attack:
+		take_damage(20)  # Apply damage using the take_damage method
+		print("enemy health = ", current_health)  # Show current health

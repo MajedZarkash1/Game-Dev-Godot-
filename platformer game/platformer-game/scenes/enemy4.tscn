@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0jxjqrygaghi"]
+[gd_scene load_steps=13 format=3 uid="uid://d0jxjqrygaghi"]
 
 [ext_resource type="Script" path="res://scripts/enemy4.gd" id="1_37g01"]
 [ext_resource type="Texture2D" uid="uid://ddplax2hqbk43" path="res://images/enemy's walking.png" id="2_h7ev3"]
+[ext_resource type="PackedScene" uid="uid://mr24c5bw585o" path="res://scenes/health_bar.tscn" id="3_mdc62"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p3e3m"]
 atlas = ExtResource("2_h7ev3")
@@ -63,7 +64,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0uij"]
 size = Vector2(7.95918, 24.898)
 
-[node name="CharacterBody2D5" type="CharacterBody2D"]
+[node name="enemy4" type="CharacterBody2D"]
 position = Vector2(2, 2)
 script = ExtResource("1_37g01")
 
@@ -78,3 +79,9 @@ animation = &"enemy\'s walking"
 position = Vector2(4.49999, -18)
 scale = Vector2(4.9, 4.9)
 shape = SubResource("RectangleShape2D_f0uij")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_mdc62")]
+offset_left = -37.0
+offset_top = -110.0
+offset_right = 42.0
+offset_bottom = -94.0

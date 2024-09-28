@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpcl6212x4uwj"]
+[gd_scene load_steps=5 format=3 uid="uid://2qhv7byusha0"]
 
 [ext_resource type="Texture2D" uid="uid://b1cbvck0jyh28" path="res://images/the enemy.png" id="1_svlsr"]
+[ext_resource type="PackedScene" uid="uid://mr24c5bw585o" path="res://scenes/health_bar.tscn" id="2_foee5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8vne"]
 animations = [{
@@ -16,7 +17,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62syr"]
 size = Vector2(74.75, 77)
 
-[node name="CharacterBody2D4" type="CharacterBody2D"]
+[node name="enemy3" type="CharacterBody2D"]
 position = Vector2(873, 397)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -28,3 +29,5 @@ sprite_frames = SubResource("SpriteFrames_k8vne")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.625, -0.5)
 shape = SubResource("RectangleShape2D_62syr")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_foee5")]
