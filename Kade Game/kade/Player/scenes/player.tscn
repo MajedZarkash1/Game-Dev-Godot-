@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca48kiargn6w1"]
+[gd_scene load_steps=15 format=3 uid="uid://ca48kiargn6w1"]
 
-[ext_resource type="Script" path="res://Player/player's_script.gd" id="1_8d6n7"]
-[ext_resource type="Texture2D" uid="uid://bocvv718fch8b" path="res://Player/kade-standing.png" id="1_qjk0n"]
+[ext_resource type="Script" path="res://Player/scripts/player's_script.gd" id="1_8d6n7"]
+[ext_resource type="Texture2D" uid="uid://bocvv718fch8b" path="res://Player/images/kade-standing.png" id="1_qjk0n"]
+[ext_resource type="Script" path="res://Player/scripts/player_state_machine.gd" id="3_kve6v"]
+[ext_resource type="Script" path="res://Player/scripts/state_idle.gd" id="4_t8xg8"]
+[ext_resource type="Script" path="res://Player/scripts/state_walk.gd" id="5_6ykw5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5i3ug"]
 radius = 7.0
@@ -38,23 +41,6 @@ tracks/0/keys = {
 "values": [0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_gxjau"]
-resource_name = "idle_up"
-length = 0.5
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [8, 9]
-}
-
 [sub_resource type="Animation" id="Animation_fyvsq"]
 resource_name = "idle_sides"
 length = 0.7
@@ -72,10 +58,10 @@ tracks/0/keys = {
 "values": [10, 13, 15]
 }
 
-[sub_resource type="Animation" id="Animation_2elej"]
-resource_name = "walk_sides"
-length = 0.7
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_gxjau"]
+resource_name = "idle_up"
+length = 0.5
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -83,10 +69,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333, 0.333333, 0.466667, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [10, 11, 12, 13, 14, 15]
+"values": [8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_i8eqk"]
@@ -104,6 +90,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_2elej"]
+resource_name = "walk_sides"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333, 0.333333, 0.466667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15]
 }
 
 [sub_resource type="Animation" id="Animation_hxdco"]
@@ -135,7 +138,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(0, -2)
+position = Vector2(123, 93)
 script = ExtResource("1_8d6n7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -153,3 +156,12 @@ vframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_k8inb")
 }
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_kve6v")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_t8xg8")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_6ykw5")
