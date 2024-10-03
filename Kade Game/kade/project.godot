@@ -53,6 +53,11 @@ down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_5="Walls"
+
 [rendering]
 
 renderer/rendering_method="mobile"
