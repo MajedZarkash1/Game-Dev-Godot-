@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Player/scripts/state_walk.gd" id="5_6ykw5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5i3ug"]
-radius = 7.0
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_ysr8g"]
 length = 0.001
@@ -139,10 +139,11 @@ _data = {
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(123, 93)
+collision_mask = 16
 script = ExtResource("1_8d6n7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_5i3ug")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
