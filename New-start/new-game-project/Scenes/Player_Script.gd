@@ -23,3 +23,22 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+extends KinematicBody2D
+
+# Signal for player death
+signal player_died()
+
+func _ready():
+	# Connect the death signal to a function (if needed)
+	connect("player_died", self, "_on_player_died")
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("player"):
+		# Call the player die function
+		die()
+
+func die():
+	emit_signal("player_died")
+	# Handle player death (e.g., reset position, reduce lives, etc.)
+	queue_free()  # This will remove the player from the scene
