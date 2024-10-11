@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://dw3xospuq6sbk"]
+
+[ext_resource type="Script" path="res://Scripts/MainScene_Script.gd" id="1_31gtc"]
+[ext_resource type="Texture2D" uid="uid://bc2xqivpdwu3c" path="res://ART/Backgrounds/darkPurple.png" id="1_dd6r4"]
+[ext_resource type="Texture2D" uid="uid://yvcxxcc408op" path="res://ART/PNG/playerShip2_orange.png" id="2_rgv2n"]
+[ext_resource type="Script" path="res://Scripts/Player_Script.gd" id="2_wcrui"]
+[ext_resource type="PackedScene" uid="uid://cj0f12o5ei2vj" path="res://Scenes/Laser.tscn" id="3_3ae58"]
+[ext_resource type="PackedScene" uid="uid://dcghuqo7ejof1" path="res://Scenes/Enemy.tscn" id="6_du5ml"]
+[ext_resource type="Script" path="res://Scripts/enemy_spawner_Script.gd" id="6_vk64w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmmjy"]
+radius = 56.0803
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmhef"]
+font_size = 45
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_fxhyr"]
+font_size = 186
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 31
+shadow_color = Color(0, 0, 0, 0.827451)
+
+[node name="Main" type="Node2D"]
+z_index = 5
+script = ExtResource("1_31gtc")
+
+[node name="Area2D (Player)" type="Area2D" parent="."]
+position = Vector2(539, 642)
+script = ExtResource("2_wcrui")
+laser_tcsn = ExtResource("3_3ae58")
+
+[node name="PlayerBody" type="Sprite2D" parent="Area2D (Player)"]
+z_index = 5
+texture_filter = 1
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_rgv2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D (Player)"]
+z_index = 5
+position = Vector2(0, 15)
+shape = SubResource("CircleShape2D_lmmjy")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(540.5, 360)
+scale = Vector2(4.22266, 2.8125)
+texture = ExtResource("1_dd6r4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1079.0
+offset_bottom = 719.0
+
+[node name="Label (Score)" type="Label" parent="Control"]
+z_index = 10
+layout_mode = 0
+offset_right = 203.0
+offset_bottom = 80.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_xmhef")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label (GameOver)" type="Label" parent="Control"]
+visible = false
+z_index = 10
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1081.0
+offset_bottom = 720.0
+text = "GameOver"
+label_settings = SubResource("LabelSettings_fxhyr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D (EnemySpawner)" type="Node2D" parent="."]
+position = Vector2(1, 0)
+script = ExtResource("6_vk64w")
+enemy_tscn = ExtResource("6_du5ml")
+
+[node name="Timer" type="Timer" parent="Node2D (EnemySpawner)"]
+
+[connection signal="area_entered" from="Area2D (Player)" to="Area2D (Player)" method="_on_area_entered"]
+[connection signal="timeout" from="Node2D (EnemySpawner)/Timer" to="Node2D (EnemySpawner)" method="_on_timer_timeout"]

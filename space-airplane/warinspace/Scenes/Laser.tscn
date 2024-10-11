@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj0f12o5ei2vj"]
+
+[ext_resource type="Script" path="res://Scripts/Laser_Script.gd" id="1_1c0vj"]
+[ext_resource type="Texture2D" uid="uid://cg10d6u3idypu" path="res://ART/PNG/Lasers/laserRed16.png" id="1_fdeav"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d5iko"]
+radius = 6.0
+height = 24.0
+
+[node name="Area2D (Laser)" type="Area2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_1c0vj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 4
+texture_filter = 1
+scale = Vector2(0.961538, 0.462963)
+texture = ExtResource("1_fdeav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4
+shape = SubResource("CapsuleShape2D_d5iko")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
