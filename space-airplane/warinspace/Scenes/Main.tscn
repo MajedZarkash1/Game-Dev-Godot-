@@ -86,5 +86,8 @@ enemy_tscn = ExtResource("6_du5ml")
 
 [node name="Timer" type="Timer" parent="Node2D (EnemySpawner)"]
 
+[node name="Area2D (Enemy)" parent="." instance=ExtResource("6_du5ml")]
+position = Vector2(359, 52)
+
 [connection signal="area_entered" from="Area2D (Player)" to="Area2D (Player)" method="_on_area_entered"]
 [connection signal="timeout" from="Node2D (EnemySpawner)/Timer" to="Node2D (EnemySpawner)" method="_on_timer_timeout"]
