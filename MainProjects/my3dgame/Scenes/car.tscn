@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://blay1iq2xdk4t"]
+
+[ext_resource type="Texture2D" uid="uid://b8v5kyv46pg8h" path="res://textrue/Wooden Planks (51).png" id="1_atdcr"]
+[ext_resource type="Texture2D" uid="uid://by0ic6cufcwy8" path="res://textrue/Wooden Planks (53).png" id="2_owrds"]
+[ext_resource type="Texture2D" uid="uid://ddlc0u338xs5w" path="res://textrue/Wooden Planks (43).png" id="3_a7v3m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xawk0"]
+albedo_texture = ExtResource("1_atdcr")
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3txn"]
+material = SubResource("StandardMaterial3D_xawk0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54l01"]
+albedo_texture = ExtResource("2_owrds")
+
+[sub_resource type="TorusMesh" id="TorusMesh_gfd18"]
+material = SubResource("StandardMaterial3D_54l01")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l22tx"]
+albedo_texture = ExtResource("3_a7v3m")
+
+[sub_resource type="BoxMesh" id="BoxMesh_mqpws"]
+material = SubResource("StandardMaterial3D_l22tx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ao8ar"]
+size = Vector3(1.63651, 1.89149, 3.52643)
+
+[node name="car" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1.52532, 0, 0, 0, 1, 0, 0, 0, 2.50677, 0, 1.01965, 0)
+mesh = SubResource("BoxMesh_d3txn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-0.00969188, 0.812027, 0, -0.341634, -0.0230366, 0, 0, 0, 0.359014, 0.655623, 0.44611, 0.769218)
+mesh = SubResource("TorusMesh_gfd18")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-0.00969188, 0.812027, 0, -0.341634, -0.0230366, 0, 0, 0, 0.359014, 0.655623, 0.44611, -0.80185)
+mesh = SubResource("TorusMesh_gfd18")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-0.00969188, 0.812027, 0, -0.341634, -0.0230366, 0, 0, 0, 0.359014, -0.698188, 0.44611, -0.80185)
+mesh = SubResource("TorusMesh_gfd18")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-0.00969188, 0.812027, 0, -0.341634, -0.0230366, 0, 0, 0, 0.359014, -0.698188, 0.44611, 0.664479)
+mesh = SubResource("TorusMesh_gfd18")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.09874, 0, 1.51496, 0.0309458)
+mesh = SubResource("BoxMesh_mqpws")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.09874, 0, 1.01533, -0.903833)
+mesh = SubResource("BoxMesh_mqpws")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.09874, 0, 1.01533, 0.505378)
+mesh = SubResource("BoxMesh_mqpws")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0300446, 1.08855, -0.205475)
+shape = SubResource("BoxShape3D_ao8ar")
