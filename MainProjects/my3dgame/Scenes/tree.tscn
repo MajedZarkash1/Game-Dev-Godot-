@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://q0xg6aw8ajlc"]
+
+[ext_resource type="PackedScene" uid="uid://cw27wxnyehqhc" path="res://tree.fbx" id="1_ueml0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8m8fd"]
+size = Vector3(1, 8.79987, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0o4d0"]
+
+[node name="tree" instance=ExtResource("1_ueml0")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="17"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.18808, 0)
+shape = SubResource("BoxShape3D_8m8fd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(0.630664, 0, 0, 0, 2.84197, 0, 0, 0, 0.585737, 0, 2.73142, 0)
+mesh = SubResource("CylinderMesh_0o4d0")
