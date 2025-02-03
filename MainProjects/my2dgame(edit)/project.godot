@@ -20,6 +20,10 @@ window/size/viewport_width=1270
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 
+[global_group]
+
+enemies=""
+
 [input]
 
 right={

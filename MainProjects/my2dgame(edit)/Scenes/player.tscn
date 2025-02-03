@@ -146,7 +146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0l675")
 }],
-"loop": true,
+"loop": false,
 "name": &"attacking",
 "speed": 7.0
 }, {
@@ -165,7 +165,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4p3bc")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash",
 "speed": 7.0
 }, {
@@ -214,7 +214,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pn5le")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 7.0
 }, {
@@ -249,7 +249,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mhjng")
 }],
-"loop": true,
+"loop": false,
 "name": &"running",
 "speed": 12.0
 }]
@@ -272,7 +272,6 @@ texture_filter = 1
 position = Vector2(-4, -22)
 sprite_frames = SubResource("SpriteFrames_bd8w1")
 animation = &"attacking"
-frame_progress = 0.808419
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

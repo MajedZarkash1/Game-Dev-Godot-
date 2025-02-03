@@ -1,18 +1,10 @@
 extends CharacterBody2D
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_area: Area2D = $AttackArea  # Ensure you have an Area2D node in your scene
+@onready var attack_timer: Timer = $AttackTimer   # Timer for attack cooldown
 @onready var collision_shape_body: CollisionShape2D = $CollisionShape2D
-@onready var collision_shape_2d_body_: CollisionShape2D = $"CollisionShape2D(body)"
-@onready var collision_shape_2d_hitbox_: CollisionShape2D = $"AttackArea/CollisionShape2D(hitbox)"
-
-@export var attack_damage: int = 10
-@export var attack_range: float = 50
-@export var attack_cooldown: float = 0.5
-
-@onready var attack_timer: Timer = $AttackTimer
-
-
-var can_attack = true
+@onready var collision_shape_hitbox: CollisionShape2D = $AttackArea/CollisionShape2D
 
 const SPEED = 100.0
 const CROUCH_SPEED = 50.0
@@ -28,6 +20,10 @@ const DASH_COOLDOWN = 0.5
 const COYOTE_TIME = 0.1      # Allows jump shortly after falling
 const JUMP_BUFFER_TIME = 0.15 # Buffer jump input
 
+# Attack settings
+const ATTACK_COOLDOWN = 0.5   # Time between attacks
+var can_attack = true         # Controls if player can attack
+
 var coyote_timer = 0.0
 var jump_buffer_timer = 0.0
 var is_dashing = false
@@ -39,23 +35,6 @@ var is_crouching = false
 # Define reset position
 var start_position = Vector2(27, 497)  # Set reset position
 
-func _input(event):
-	if event.is_action_pressed("attack") and can_attack:
-		animation.play("attacking")
-		attack()
-
-func attack():
-	can_attack = false
-	$AttackTimer.start()  # Start cooldown timer
-
-
-	var enemies = get_tree().get_nodes_in_group("enemies")
-	for enemy in enemies:
-		if global_position.distance_to(enemy.global_position) <= attack_range:
-			enemy.take_damage(attack_damage)
-
-func _on_AttackTimer_timeout():
-	can_attack = true
 
 
 func _physics_process(delta: float) -> void:
@@ -120,6 +99,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = dash_direction * DASH_SPEED
 			animation.play("dash")
 
+	# Handle attacking
+	if Input.is_action_just_pressed("Attack") and can_attack:
+		attack()
+
 	# Check if the player falls outside the world (below the screen or floor level)
 	if position.y > 520:  # If the player falls too far, reset position
 		reset_player()
@@ -142,9 +125,28 @@ func _physics_process(delta: float) -> void:
 	else:
 		animation.play("idle")
 
+# Function to handle attacking
+func attack() -> void:
+	can_attack = false
+	animation.play("attack")  # Play attack animation
+	attack_timer.start(ATTACK_COOLDOWN)  # Start cooldown timer
+
+	# Detect enemies in attack range
+	for body in attack_area.get_overlapping_bodies():
+		if body.is_in_group("enemies"):  # Ensure enemies are in "enemies" group
+			body.take_damage(1)  # Call function to damage the enemy
+
+# Reset attack after cooldown
+func _on_AttackTimer_timeout() -> void:
+	can_attack = true  # Enable attack again
+
 # Function to reset player position
 func reset_player() -> void:
 	var start_position = Vector2(27, 479)
 	position = start_position  # Reset the player's position to the starting point
 	velocity = Vector2.ZERO  # Reset the velocity
 	animation.play("idle")  # Set the animation to idle when the player is reset
+
+
+func _on_attack_timer_timeout() -> void:
+	pass # Replace with function body.
