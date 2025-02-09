@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
+var health: int = 5
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $AnimatedSprite2D
@@ -50,3 +51,5 @@ func _physics_process(delta: float) -> void:
 		hurt_box.monitoring = true
 		await animation_player.animation_finished  # Wait for attack to finish
 		attack = false  # Allow movement again
+	
+	
