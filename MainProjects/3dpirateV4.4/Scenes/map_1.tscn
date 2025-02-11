@@ -1,8 +1,11 @@
-[gd_scene load_steps=22 format=4 uid="uid://sdi4t8553vpn"]
+[gd_scene load_steps=28 format=4 uid="uid://sdi4t8553vpn"]
 
 [ext_resource type="PackedScene" uid="uid://xdxhxid6wwsj" path="res://Scenes/player.tscn" id="1_dcmhf"]
 [ext_resource type="Material" uid="uid://k522g1axcr4q" path="res://Materials/chest.tres" id="2_gt30j"]
 [ext_resource type="Script" uid="uid://jlilni52xm4a" path="res://Scenes/chest_gold.gd" id="2_pj5k7"]
+[ext_resource type="PackedScene" uid="uid://bmsj7vkctteqy" path="res://brackeys_3d_game_assets/import_examples/barrel/barrel.glb" id="4_k5iew"]
+[ext_resource type="PackedScene" uid="uid://cccp02l86h50g" path="res://brackeys_3d_game_assets/dungeon_assets/props/torch_mounted.glb" id="5_ptrbc"]
+[ext_resource type="PackedScene" uid="uid://etxujcdydhq2" path="res://brackeys_3d_game_assets/dungeon_assets/props/candles.glb" id="6_7uytb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gt30j"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -118,10 +121,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_t3kt2")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lmd5f"]
+radius = 0.957255
+height = 4.43197
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ptrbc"]
+radius = 0.949482
+height = 4.54292
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7uytb"]
+radius = 0.281106
+height = 1.53465
+
 [node name="map 1" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.492404, -0.0868241, 0, -0.173648, 0.984808, -0.5, 0.852868, 0.150384, -0.060778, 27.3894, 0.10527)
+light_color = Color(0.374139, 0.374139, 0.374139, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -326,7 +342,6 @@ transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 11.2, 0, -
 script = ExtResource("2_pj5k7")
 
 [node name="Area3D" type="Area3D" parent="chest_gold"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="chest_gold/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999956, 0.6, 0)
@@ -340,5 +355,69 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 0.691236, 0.722629, 0, -0.722629, 0.691236, 0, 0.5, -0.564883)
 mesh = SubResource("ArrayMesh_r14wn")
 skeleton = NodePath("")
+
+[node name="barrel2" parent="." instance=ExtResource("4_k5iew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.391, 0, -6.99341)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="barrel2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrel2/StaticBody3D"]
+shape = SubResource("CapsuleShape3D_lmd5f")
+
+[node name="barrel3" parent="." instance=ExtResource("4_k5iew")]
+transform = Transform3D(0.460588, 0, 0, 0, 0.593861, 0, 0, 0, 0.508776, -12.5073, 0, -5.49079)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="barrel3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrel3/StaticBody3D"]
+shape = SubResource("CapsuleShape3D_ptrbc")
+
+[node name="torch_mounted2" parent="." instance=ExtResource("5_ptrbc")]
+transform = Transform3D(-0.00024429, 0, 1, 0, 1, 0, -1, 0, -0.00024429, -13.459, 6.24225, -12.5777)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torch_mounted2"]
+transform = Transform3D(0.751978, 0, -0.659188, 0, 1, 0, 0.659188, 0, 0.751978, -9.82285e-05, 0.502669, 0.404508)
+omni_range = 14.2847
+
+[node name="StaticBody3D" type="StaticBody3D" parent="torch_mounted2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="torch_mounted2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00272e-05, 0.166017, 0.0806465)
+shape = SubResource("CapsuleShape3D_7uytb")
+
+[node name="torch_mounted3" parent="." instance=ExtResource("5_ptrbc")]
+transform = Transform3D(-0.999904, 0, -0.0138399, 0, 1, 0, 0.0138399, 0, -0.999904, -2.20786, 6.458, 6.65923)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torch_mounted3"]
+transform = Transform3D(0.946323, 0, 0.323224, 0, 1, 0, -0.323224, 0, 0.946323, 5.67436e-05, 0.502669, 0.393242)
+omni_range = 16.774
+
+[node name="StaticBody3D" type="StaticBody3D" parent="torch_mounted3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="torch_mounted3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00272e-05, 0.166017, 0.0806465)
+shape = SubResource("CapsuleShape3D_7uytb")
+
+[node name="torch_mounted4" parent="." instance=ExtResource("5_ptrbc")]
+transform = Transform3D(0.0523882, 0, -0.998627, 0, 1, 0, 0.998627, 0, 0.0523882, -1.48752, 4.53876, 16.0005)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torch_mounted4"]
+transform = Transform3D(0.946323, 0, 0.323224, 0, 1, 0, -0.323224, 0, 0.946323, 5.67436e-05, 0.502669, 0.393242)
+omni_range = 16.774
+
+[node name="StaticBody3D" type="StaticBody3D" parent="torch_mounted4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="torch_mounted4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00272e-05, 0.166017, 0.0806465)
+shape = SubResource("CapsuleShape3D_7uytb")
+
+[node name="candles" parent="." instance=ExtResource("6_7uytb")]
+transform = Transform3D(0.659005, 0, 0.752139, 0, 1, 0, -0.752139, 0, 0.659005, -12.7507, 0.14934, -12.5777)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="candles"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="candles/StaticBody3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.100985, 0.166017, -0.00785065)
+shape = SubResource("CapsuleShape3D_7uytb")
 
 [connection signal="area_entered" from="chest_gold/Area3D" to="chest_gold" method="_on_area_3d_area_entered"]
