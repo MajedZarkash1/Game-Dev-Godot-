@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://rqv2ncvtgl74"]
+
+[ext_resource type="PackedScene" uid="uid://xdxhxid6wwsj" path="res://Scenes/player.tscn" id="1_08gir"]
+
+[node name="map 2" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(50, 0.1, 50)
+
+[node name="player" parent="." groups=["player"] instance=ExtResource("1_08gir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6, 0, 20.9)
+can_sprint = true
+look_speed = 0.001
+base_speed = 4.0
+jump_velocity = 2.5
+sprint_speed = 5.0
+input_left = "left"
+input_right = "right"
+input_forward = "up"
+input_back = "down"
+input_jump = "jump"
