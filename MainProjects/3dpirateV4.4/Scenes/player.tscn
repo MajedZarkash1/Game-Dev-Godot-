@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xdxhxid6wwsj"]
+[gd_scene load_steps=6 format=3 uid="uid://xdxhxid6wwsj"]
 
 [ext_resource type="Script" uid="uid://c2htq1v1g8f5j" path="res://Movement/proto_controller/proto_controller.gd" id="1_vmmh6"]
 
@@ -12,6 +12,10 @@ height = 1.8
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
 height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
+radius = 1.21479
+height = 2.42959
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_vmmh6")
@@ -31,3 +35,9 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="Hurtbox" type="Area3D" parent="." groups=["player"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983082, 0)
+shape = SubResource("CapsuleShape3D_v0iea")

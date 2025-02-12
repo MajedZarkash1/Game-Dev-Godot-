@@ -5,6 +5,9 @@
 
 extends CharacterBody3D
 
+
+var health :int = 3
+
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -59,6 +62,8 @@ func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		enemy.hit_player.connect(_on_player_hit)  # Connect to enemy hit signal
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -178,3 +183,10 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+
+func _on_player_hit():
+	health -= 1  # Reduce health
+	print("Player hit! Health:", health)
+
+	if health <= 0:
+		get_tree().reload_current_scene()  # Reload scene when health is 0

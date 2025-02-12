@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://sdi4t8553vpn"]
+[gd_scene load_steps=28 format=4 uid="uid://sdi4t8553vpn"]
 
 [ext_resource type="PackedScene" uid="uid://xdxhxid6wwsj" path="res://Scenes/player.tscn" id="1_dcmhf"]
 [ext_resource type="PackedScene" uid="uid://bmsj7vkctteqy" path="res://brackeys_3d_game_assets/import_examples/barrel/barrel.glb" id="4_k5iew"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://bdvlhwho73qxi" path="res://Materials/candle.tres" id="7_7uytb"]
 [ext_resource type="PackedScene" uid="uid://nnmkjxq4s2pi" path="res://Scenes/chest.tscn" id="7_apttf"]
 [ext_resource type="PackedScene" uid="uid://badjatb447pqs" path="res://brackeys_3d_game_assets/dungeon_assets/props/sword_shield.glb" id="8_apttf"]
+[ext_resource type="PackedScene" uid="uid://bm68ds4w6u824" path="res://Scenes/enemy.tscn" id="8_pawq8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gt30j"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -731,3 +732,6 @@ shape = SubResource("CapsuleShape3D_7uytb")
 
 [node name="chest" parent="." instance=ExtResource("7_apttf")]
 transform = Transform3D(0.694633, 0, 0.719364, 0, 1, 0, -0.719364, 0, 0.694633, -18.1412, 0, -22.9571)
+
+[node name="enemy" parent="." instance=ExtResource("8_pawq8")]
+transform = Transform3D(0.297025, 0, 0.95487, 0, 1, 0, -0.95487, 0, 0.297025, 0, 0, 0)
