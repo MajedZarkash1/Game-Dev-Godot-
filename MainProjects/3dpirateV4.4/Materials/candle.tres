@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://brbsuhgyh0skq" path="res://brackeys_3d_game_assets/dungeon_assets/dungeon_albedo.png" id="1_6v1pu"]
 
 [resource]
+albedo_color = Color(0.29219, 0.29219, 0.29219, 1)
 albedo_texture = ExtResource("1_6v1pu")
