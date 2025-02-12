@@ -6,7 +6,7 @@
 extends CharacterBody3D
 
 
-var health :int = 3
+var health :int = 1
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -189,4 +189,4 @@ func _on_player_hit():
 	print("Player hit! Health:", health)
 
 	if health <= 0:
-		get_tree().reload_current_scene()  # Reload scene when health is 0
+		get_tree().reload_current_scene() # Reload scene when health is 0

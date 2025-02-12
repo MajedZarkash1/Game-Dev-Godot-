@@ -8,7 +8,7 @@
 use_collision = true
 size = Vector3(50, 0.1, 50)
 
-[node name="player" parent="." groups=["player"] instance=ExtResource("1_08gir")]
+[node name="player" parent="." instance=ExtResource("1_08gir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6, 0, 20.9)
 can_sprint = true
 look_speed = 0.001
