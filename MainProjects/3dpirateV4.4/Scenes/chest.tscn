@@ -94,6 +94,8 @@ skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.986117, 0)
+light_color = Color(0.900476, 0.697534, 0.0320478, 1)
 omni_range = 17.3388
+omni_attenuation = 3.667
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
