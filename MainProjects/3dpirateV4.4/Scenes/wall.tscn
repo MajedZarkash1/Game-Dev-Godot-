@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwv0513f4onju"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b57mv"]
+albedo_color = Color(0.522661, 0.226512, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_al0cd"]
+size = Vector3(30, 0.1, 30)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_overlay = SubResource("StandardMaterial3D_b57mv")
+size = Vector3(30, 0.1, 30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_al0cd")
