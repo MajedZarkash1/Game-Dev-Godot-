@@ -90,6 +90,9 @@ func _physics_process(delta: float) -> void:
 		var motion := (head.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		motion *= freefly_speed * delta
 		move_and_collide(motion)
+	# Check if player falls below -2000 in Y
+	if global_position.y < -4:
+		get_tree().reload_current_scene()
 		return
 	
 	# Apply gravity to velocity
@@ -190,3 +193,4 @@ func _on_player_hit():
 
 	if health <= 0:
 		get_tree().reload_current_scene() # Reload scene when health is 0
+		
